@@ -55,7 +55,13 @@ void loop() {
 
 
   // Lee los sensores
-  //bool* line_sensors = read_line_sensors();
+  bool* line_sensors = read_line_sensors();
+
+  /***************** TO DO *********************/
+  // Procesar datos de los sensores.
+  // Modificar las órdenes de velocidad de acuerdo con los datos de los sensores
+  // Limpiar y organizar el código.
+  /*********************************************/
 
   // convierte la velocidad del robot en velocidad de los motores
   int* motor_target_vel = set_motor_target_velocities(linear_velocity, angular_velocity);
