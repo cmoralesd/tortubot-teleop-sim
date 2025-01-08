@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "author": "cmoralesd",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 83.7,
+      "left": 302.1,
+      "rotate": 90,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 280,
+      "left": -149.4,
+      "rotate": 180,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 280,
+      "left": -111,
+      "rotate": 180,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 280,
+      "left": 157.8,
+      "rotate": 180,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": 280,
+      "left": 196.2,
+      "rotate": 180,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 297.6, "left": -67.8, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 297.6, "left": 249, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "txt1",
+      "top": 326.4,
+      "left": -144,
+      "attrs": { "text": "MOTOR 1" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "txt2",
+      "top": 326.4,
+      "left": 163.2,
+      "attrs": { "text": "MOTOR 2" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "txt3",
+      "top": 57.6,
+      "left": 316.8,
+      "attrs": { "text": "BUZZER" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "txt4",
+      "top": -172.8,
+      "left": -48,
+      "attrs": { "text": "LEFT" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "txt5",
+      "top": -172.8,
+      "left": 28.8,
+      "attrs": { "text": "CENTER" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "txt6",
+      "top": -172.8,
+      "left": 115.2,
+      "attrs": { "text": "RIGHT" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "txt8",
+      "top": -211.2,
+      "left": 19.2,
+      "attrs": { "text": "0 <--> 1" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": 144, "left": 277.8, "attrs": {} },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "sw1",
+      "top": -139.6,
+      "left": -44.9,
+      "attrs": { "text": "RIGHT", "color": "#800030" }
+    },
+    { "type": "wokwi-slide-switch", "id": "sw2", "top": -139.6, "left": 41.5, "attrs": {} },
+    { "type": "wokwi-slide-switch", "id": "sw3", "top": -139.6, "left": 118.3, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd4", "top": -76.8, "left": 210.6, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -152.84, "left": 211.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "led1:C", "gnd1:GND", "green", [ "v-23.6", "h67.2", "v9.6" ] ],
+    [ "led3:C", "gnd2:GND", "green", [ "v-23.6", "h76.8" ] ],
+    [ "led2:C", "gnd1:GND", "green", [ "v-23.6", "h28.8" ] ],
+    [ "led4:C", "gnd2:GND", "green", [ "v-23.6", "h38.4" ] ],
+    [ "led1:A", "esp:D25", "green", [ "v0" ] ],
+    [ "led2:A", "esp:D26", "green", [ "v0" ] ],
+    [ "led3:A", "esp:D27", "green", [ "v-62", "h-230", "v0", "h-57.6", "v-105.6" ] ],
+    [ "esp:D32", "led4:A", "green", [ "h-81.6", "v141.28", "h297.6" ] ],
+    [ "bz1:2", "esp:D2", "green", [ "h0" ] ],
+    [ "gnd3:GND", "bz1:1", "black", [ "v-28.8", "h9.6" ] ],
+    [ "sw1:3", "vcc1:VCC", "green", [ "v9.6", "h240.2" ] ],
+    [ "sw2:3", "vcc1:VCC", "green", [ "v9.6", "h144.2" ] ],
+    [ "sw3:3", "vcc1:VCC", "green", [ "v9.6", "h38.6" ] ],
+    [ "sw1:1", "gnd4:GND", "green", [ "v19.2", "h249.6" ] ],
+    [ "sw2:1", "gnd4:GND", "green", [ "v19.2", "h28.8" ] ],
+    [ "sw3:1", "gnd4:GND", "green", [ "v19.2", "h48" ] ],
+    [ "sw3:2", "esp:D23", "green", [ "v124.8", "h0.1" ] ],
+    [ "sw2:2", "esp:D19", "green", [ "v28.8", "h86.5", "v115.2" ] ],
+    [ "sw1:2", "esp:D18", "green", [ "v38.4", "h182.5", "v144" ] ]
+  ],
+  "dependencies": {}
+}
